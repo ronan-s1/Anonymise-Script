@@ -11,6 +11,7 @@ CSV = "words.csv"
 YELLOW = "\033[33m"
 BOLD = "\033[1m"
 RESET = "\033[0m"
+GREEN = "\033[32m"
 
 def replace_words(input_text, replacement_dict):
     for word, new_word in replacement_dict.items():
@@ -74,7 +75,7 @@ def main():
     modified_input = replace_file_paths(modified_input)
     pyperclip.copy(re.sub(r"\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])", "", modified_input))
 
-    print(f"\n{BOLD}Original:{RESET}\n{user_input}\n{BOLD}Modified:{RESET}\n{modified_input}")
+    print(f"\n{BOLD}{GREEN}Original:{RESET}\n{user_input}\n{BOLD}{GREEN}Modified:{RESET}\n{modified_input}")
 
 
 if __name__ == "__main__":
