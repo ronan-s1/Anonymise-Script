@@ -74,6 +74,7 @@ def read_csv_file(csv_file):
 def main():
     parser = argparse.ArgumentParser(description="Process text with replacements")
     parser.add_argument("--input", "-i", help="Input text")
+    parser.add_argument("--copy", "-c", action="store_true", help="If you want to add the ouput to your clipboard")
     args = parser.parse_args()
 
     replacement_dict = read_csv_file(CSV)
@@ -87,7 +88,9 @@ def main():
     modified_input = replace_ip_address(modified_input)
     modified_input = replace_timeseries(modified_input)
     modified_input = replace_file_paths(modified_input)
-    pyperclip.copy(re.sub(r"\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])", "", modified_input))
+
+    if args.copy:
+        pyperclip.copy(re.sub(r"\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])", "", modified_input))
 
     print(f"\n{BOLD}{GREEN}Original:{RESET}\n{user_input}\n{BOLD}{GREEN}Modified:{RESET}\n{modified_input}")
 
