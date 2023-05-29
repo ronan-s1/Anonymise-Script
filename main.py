@@ -56,10 +56,10 @@ def replace_file_paths(input_text):
     for file_path in file_paths:
         # if it's not a URL (not perfect but works usually)
         if file_path[:2] != "//":
-            directory_path, file_name = os.path.split(file_path)
+            _, file_name = os.path.split(file_path)
             file_extension = os.path.splitext(file_name)[1]
             # keeping file extension
-            new_file_path = replacement_text_color(f"{directory_path}/my_file{file_extension}")
+            new_file_path = replacement_text_color(f"/path/to/file/my_file{file_extension}")
             input_text = input_text.replace(file_path, new_file_path)
     return input_text
 

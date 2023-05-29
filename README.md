@@ -26,9 +26,10 @@ original word, replacement word
 For example:
 
 ```csv
-my_company_name, fake_company_name
-my_name, fake_name
-tenant_name, fake_tenant_name
+company123, fake_company_name
+john, firstname
+smith, lastname
+tenant123, fake_tenant_name
 ```
  
 Each row should represent a unique replacement. Don't have blank spaces anywhere in the CSV file.
