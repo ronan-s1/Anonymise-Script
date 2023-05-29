@@ -48,20 +48,24 @@ python3 main.py
 
 ## Usage
 
-### step 1
+### The script accepts the following command-line arguments:
+- `--input` or `-i`: Specifies the input text to be processed. If not provided, the script will open a vim text editor for you to enter the input interactively.
+
+- `--copy` or `-c`: If provided, the modified output will be copied to the clipboard.
+
+### example
+This will process the input text "my input" and copy the modified output to the clipboard.
+
+```
+python3 main.py -i "my input" -c
+```
+
+### running script
 When you run the script a vim editor will appear where you will insert (i) your input and then save it (:wq)
 
-Inputs can also be added by using the `--input` or `-i` arguments:
-
-```
-python3 main.py -i "hey this is my input!"
-```
-
-### step 2
+### reading output
 Once that's done you will see the modified version, changes will be in yellow.
 
-### step 3
-The modified version will be in your clipboard now.
 
 ## Example
 
