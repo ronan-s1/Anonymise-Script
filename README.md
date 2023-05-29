@@ -2,6 +2,14 @@
 
 This script anonymises inputs in an attempt to mask the original sources from which the input originated.
 
+## Features
+
+This script currently replaces:
+- specified words in `words.csv`
+- file paths
+- ip addresses
+- timeseries
+
 ## Set Up
 Create a CSV file in the same directory as `main.py`:
 
