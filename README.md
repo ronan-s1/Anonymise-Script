@@ -31,10 +31,19 @@ python3 main.py
 
 ## Usage
 
+### step 1
 When you run the script a vim editor will appear where you will insert (i) your input and then save it (:wq)
 
+Inputs can also be added by using the `--input' or '-i' arguments:
+
+```
+python3 main.py -i "hey this is my input!"
+```
+
+### step 2
 Once that's done you will see the modified version, changes will be in yellow.
 
+### step 3
 The modified version will be in your clipboard now.
 
 ## Note
