@@ -67,7 +67,7 @@ The modified version will be in your clipboard now.
 
 Here's an example output with the example csv above.
 
-<img width="860" alt="image" src="https://github.com/ronan-s1/Anonymise-Script/assets/85257187/34398d39-aa92-4a20-9327-6c4deabefd93">
+<img width="900" alt="example img" src="https://github.com/ronan-s1/Anonymise-Script/assets/85257187/3314ca16-2990-4476-aee6-65a9a3885e6a">
 
 ## Note
 
