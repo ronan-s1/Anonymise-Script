@@ -34,11 +34,14 @@ tenant123, fake_tenant_name
  
 Each row should represent a unique replacement. Don't have blank spaces anywhere in the CSV file.
 
+<hr>
+
 Install packages:
 
 ```
 pip install -r requirements.txt
 ```
+<hr>
 
 run the code:
 
