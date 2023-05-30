@@ -52,7 +52,7 @@ def replace_timeseries(input_text):
 
 
 def replace_file_paths(input_text):
-    file_paths = re.findall(r"\/[^,:]*(?:\.\w+)?", input_text)
+    file_paths = re.findall(r"\/[^,:]*\.\w+", input_text)
     for file_path in file_paths:
         # if it's not a URL (not perfect but works usually)
         if file_path[:2] != "//":
