@@ -46,7 +46,7 @@ def replace_ip_address(input_text):
 
 def replace_timeseries(input_text):
     timeseries_pattern = r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d+Z"
-    replacement_text = replacement_text_color("2010-01-01T10:10:10.10101")
+    replacement_text = replacement_text_color("<timeseries>")
     modified_text = re.sub(timeseries_pattern, replacement_text, input_text)
     return modified_text
 
