@@ -63,7 +63,7 @@ If provided, the modified output will be copied to the clipboard.
 - `--backtick` or -`bt`: 
 If provided, the modified output will be wrapped with backticks (```).
 
-- `--no-filepath` or `-nf: 
+- `--no-filepath` or `-nf`: 
 If provided, file path changes will be skipped.
 
 ### example
