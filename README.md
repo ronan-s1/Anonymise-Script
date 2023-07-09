@@ -52,15 +52,20 @@ python3 main.py
 ## Usage
 
 ### The script accepts the following command-line arguments:
-- `--input` or `-i`: Specifies the input text to be processed. If not provided, the script will open a vim text editor for you to enter the input interactively.
+- `--input` or `-i`: 
+Specifies the input text to be processed. If not provided, the script will open a vim text editor for you to enter the input interactively.
 
-- `--copy` or `-c`: If provided, the modified output will be copied to the clipboard.
+- `--copy` or `-c`: 
+If provided, the modified output will be copied to the clipboard.
+
+- `--backtick or -bt`: 
+If provided, the modified output will be wrapped with backticks (```).
 
 ### example
-This will process the input text "my input" and copy the modified output to the clipboard.
+This command will process the input text, wrap the modified output with backticks, and copy it to the clipboard.
 
 ```
-python3 main.py -i "my input" -c
+python main.py -i "<input>" -c -bt
 ```
 
 ### running script
