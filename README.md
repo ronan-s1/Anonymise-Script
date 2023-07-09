@@ -4,11 +4,14 @@ This script anonymises inputs in an attempt to mask the original sources from wh
 
 ## Features
 
-This script currently replaces:
-- specified words in `words.csv`
-- file paths (optional as it's a bit dodgey lol)
-- ip addresses
-- timeseries
+This script currently performs the following:
+
+- Replaces specified words in words.csv.
+- Replaces IP addresses with generic IPs.
+- Replaces timeseries with a placeholder value.
+- Replaces file paths with generic file paths (optional as it's a bit dodgy lol).
+- Wraps the modified output with backticks (```) if the --backtick flag is provided.
+
 ## Set Up
 Create a CSV file in the same directory as `main.py`:
 

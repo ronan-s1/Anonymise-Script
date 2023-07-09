@@ -35,11 +35,11 @@ def replace_ip_address(input_text):
         if ip in ip_mapping:
             return replacement_text_color(ip_mapping[ip])
         else:
-            generic_ip = ".".join(str(random.randint(0, 255)) for _ in range(4))
+            ip_count = len(ip_mapping) + 1
+            generic_ip = f"<ip-address-{ip_count}>"
             ip_mapping[ip] = generic_ip
             return replacement_text_color(generic_ip)
 
-    # Replace IP addresses with generic IPs or reuse existing generic IPs
     modified_text = re.sub(ip_pattern, replace_ip, input_text)
     return modified_text
 
