@@ -76,6 +76,7 @@ def main():
     parser.add_argument("--input", "-i", help="Input text")
     parser.add_argument("--copy", "-c", action="store_true", help="If you want to add the output to your clipboard")
     parser.add_argument("--backtick", "-bt", action="store_true", help="Wrap output with backticks (`)")
+    parser.add_argument("--no-filepath", "-nf", action="store_true", help="Do not replace file paths")
     args = parser.parse_args()
 
     replacement_dict = read_csv_file(CSV)
@@ -88,7 +89,9 @@ def main():
     modified_input = replace_words(user_input, replacement_dict)
     modified_input = replace_ip_address(modified_input)
     modified_input = replace_timeseries(modified_input)
-    modified_input = replace_file_paths(modified_input)
+
+    if not args.no_filepath:
+        modified_input = replace_file_paths(modified_input)
 
     if args.backtick:
         modified_input = f"```\n{modified_input}\n```"

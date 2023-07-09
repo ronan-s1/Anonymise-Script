@@ -6,10 +6,9 @@ This script anonymises inputs in an attempt to mask the original sources from wh
 
 This script currently replaces:
 - specified words in `words.csv`
-- file paths
+- file paths (optional as it's a bit dodgey lol)
 - ip addresses
 - timeseries
-
 ## Set Up
 Create a CSV file in the same directory as `main.py`:
 
@@ -58,14 +57,21 @@ Specifies the input text to be processed. If not provided, the script will open 
 - `--copy` or `-c`: 
 If provided, the modified output will be copied to the clipboard.
 
-- `--backtick or -bt`: 
+- `--backtick` or -`bt`: 
 If provided, the modified output will be wrapped with backticks (```).
 
+- `--no-filepath` or `-nf: 
+If provided, file path changes will be skipped.
+
 ### example
-This command will process the input text, wrap the modified output with backticks, and copy it to the clipboard.
+This command will process the input text "This is my input text", wrap the modified output with backticks, copy it to the clipboard, and exclude the filepath changes.
 
 ```
-python main.py -i "<input>" -c -bt
+python script.py --input "This is my input text" --copy --backtick --no-filepath
+```
+or
+```
+python script.py -i "This is my input text" -c -bt -nf
 ```
 
 ### running script
