@@ -1,7 +1,8 @@
 import argparse
 import csv
 import re
-import random
+from urllib.parse import urlparse
+from pathlib import Path
 import pyperclip
 import os
 from editor import edit
@@ -49,19 +50,6 @@ def replace_ip_address(input_text):
     return modified_text
 
 
-def replace_file_paths(input_text):
-    file_paths = re.findall(r"\/[^,:]*\.\w+", input_text)
-    for file_path in file_paths:
-        # if it's not a URL (not perfect but works usually)
-        if file_path[:2] != "//":
-            _, file_name = os.path.split(file_path)
-            file_extension = os.path.splitext(file_name)[1]
-            # keeping file extension
-            new_file_path = replacement_text_color(f"/path/to/file/my_file{file_extension}")
-            input_text = input_text.replace(file_path, new_file_path)
-    return input_text
-
-
 def read_csv_file(csv_file):
     with open(csv_file, "r") as file:
         reader = csv.reader(file)
@@ -75,7 +63,6 @@ def main():
     parser.add_argument("--input", "-i", help="Input text")
     parser.add_argument("--copy", "-c", action="store_true", help="If you want to add the output to your clipboard")
     parser.add_argument("--backtick", "-bt", action="store_true", help="Wrap output with backticks (`)")
-    parser.add_argument("--filepath", "-f", action="store_true", help="Do not replace file paths")
     args = parser.parse_args()
 
     replacement_dict = read_csv_file(CSV)
@@ -87,9 +74,6 @@ def main():
 
     modified_input = replace_words(user_input, replacement_dict)
     modified_input = replace_ip_address(modified_input)
-
-    if args.filepath:
-        modified_input = replace_file_paths(modified_input)
 
     if args.backtick:
         modified_input = f"```\n{modified_input}\n```"
