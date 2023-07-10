@@ -59,8 +59,11 @@ Specifies the input text to be processed. If not provided, the script will open 
 - `--copy` or `-c`: 
 If provided, the modified output will be copied to the clipboard.
 
-- `--backtick` or -`bt`: 
+- `--backtick` or `-bt`: 
 If provided, the modified output will be wrapped with backticks (```).
+
+- `--test` or `-t`: 
+If provided, the test.csv will be used instead of words.csv.
 
 ### example
 
