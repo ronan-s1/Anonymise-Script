@@ -13,6 +13,11 @@ YELLOW = "\033[33m"
 BOLD = "\033[1m"
 RESET = "\033[0m"
 GREEN = "\033[32m"
+PURPLE = "\033[35m"
+
+
+def clear_screen():
+    os.system("cls" if os.name == "nt" else "clear")
 
 
 def replacement_text_color(text):
@@ -44,13 +49,6 @@ def replace_ip_address(input_text):
     return modified_text
 
 
-def replace_timeseries(input_text):
-    timeseries_pattern = r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d+Z"
-    replacement_text = replacement_text_color("<timeseries>")
-    modified_text = re.sub(timeseries_pattern, replacement_text, input_text)
-    return modified_text
-
-
 def replace_file_paths(input_text):
     file_paths = re.findall(r"\/[^,:]*\.\w+", input_text)
     for file_path in file_paths:
@@ -72,11 +70,12 @@ def read_csv_file(csv_file):
 
 
 def main():
+    clear_screen()
     parser = argparse.ArgumentParser(description="Process text with replacements")
     parser.add_argument("--input", "-i", help="Input text")
     parser.add_argument("--copy", "-c", action="store_true", help="If you want to add the output to your clipboard")
     parser.add_argument("--backtick", "-bt", action="store_true", help="Wrap output with backticks (`)")
-    parser.add_argument("--no-filepath", "-nf", action="store_true", help="Do not replace file paths")
+    parser.add_argument("--filepath", "-f", action="store_true", help="Do not replace file paths")
     args = parser.parse_args()
 
     replacement_dict = read_csv_file(CSV)
@@ -88,19 +87,18 @@ def main():
 
     modified_input = replace_words(user_input, replacement_dict)
     modified_input = replace_ip_address(modified_input)
-    modified_input = replace_timeseries(modified_input)
 
-    if not args.no_filepath:
+    if args.no_filepath:
         modified_input = replace_file_paths(modified_input)
 
     if args.backtick:
         modified_input = f"```\n{modified_input}\n```"
 
-    if args.copy:
-        pyperclip.copy(re.sub(r"\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])", "", modified_input))
+    print(f"\n{BOLD}{GREEN}Original:{RESET}\n{user_input}\n{BOLD}{GREEN}\nModified:{RESET}\n{modified_input}\n")
 
-    print(f"\n{BOLD}{GREEN}Original:{RESET}\n{user_input}\n{BOLD}{GREEN}Modified:{RESET}\n{modified_input}")
-
+    if args.copy or input(f"{BOLD}{PURPLE}Add to clipboard? (y/n): {RESET}").lower() in ["yes", "y"]:
+        pattern = re.compile(r"\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])")
+        pyperclip.copy(pattern.sub("", modified_input))
 
 if __name__ == "__main__":
     main()

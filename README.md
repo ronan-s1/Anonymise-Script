@@ -8,7 +8,6 @@ This script currently performs the following:
 
 - Replaces specified words in words.csv.
 - Replaces IP addresses with generic IPs.
-- Replaces timeseries with a placeholder value.
 - Replaces file paths with generic file paths (optional as it's a bit dodgy lol).
 - Wraps the modified output with backticks (```) if the --backtick flag is provided.
 
@@ -63,8 +62,8 @@ If provided, the modified output will be copied to the clipboard.
 - `--backtick` or -`bt`: 
 If provided, the modified output will be wrapped with backticks (```).
 
-- `--no-filepath` or `-nf`: 
-If provided, file path changes will be skipped.
+- `--filepath` or `-f`: 
+If provided, file paths will be replaced.
 
 ### example
 This command will process the input text "This is my input text", wrap the modified output with backticks, copy it to the clipboard, and exclude the filepath changes.
