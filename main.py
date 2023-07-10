@@ -1,8 +1,6 @@
 import argparse
 import csv
 import re
-from urllib.parse import urlparse
-from pathlib import Path
 import pyperclip
 import os
 from editor import edit
@@ -63,7 +61,11 @@ def main():
     parser.add_argument("--input", "-i", help="Input text")
     parser.add_argument("--copy", "-c", action="store_true", help="If you want to add the output to your clipboard")
     parser.add_argument("--backtick", "-bt", action="store_true", help="Wrap output with backticks (`)")
+    parser.add_argument("--test", "-t", action="store_true", help="If you want to use test.csv")
     args = parser.parse_args()
+
+    if args.test:
+        CSV = "test.csv"
 
     replacement_dict = read_csv_file(CSV)
 

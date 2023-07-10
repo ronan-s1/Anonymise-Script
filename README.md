@@ -52,6 +52,7 @@ python3 main.py
 ## Usage
 
 ### The script accepts the following command-line arguments:
+
 - `--input` or `-i`: 
 Specifies the input text to be processed. If not provided, the script will open a vim text editor for you to enter the input interactively.
 
@@ -62,6 +63,7 @@ If provided, the modified output will be copied to the clipboard.
 If provided, the modified output will be wrapped with backticks (```).
 
 ### example
+
 This command will process the input text "This is my input text", wrap the modified output with backticks and copy it to the clipboard
 
 ```
@@ -73,16 +75,18 @@ python script.py -i "This is my input text" -c -bt
 ```
 
 ### running script
+
 When you run the script a vim editor will appear where you will insert (i) your input and then save it (:wq)
 
 ### reading output
+
 Once that"s done you will see the modified version, changes will be in yellow.
 
 ## Example
 
-Try this with the example csv above:
+Try this:
 ```
-python main.py -bt -i "@john.smith there's an issue with tenant123 with ip 173.126.26.218. The problem should be coming from here https://bitbucket.company123.com/projects/bot. Next to 173.126.26.218, you should also inspect 173.111.261.218 and 113.126.66.182."
+python main.py -bt -t -i "@john.smith there's an issue with tenant123 with ip 173.126.26.218. The problem should be coming from here https://bitbucket.company123.com/projects/bot. Next to 173.126.26.218, you should also inspect 173.111.261.218 and 113.126.66.182."
 ```
 
 ![image](https://github.com/ronan-s1/Anonymise-Script/assets/85257187/20474eee-f54e-4b63-b195-5a3eb02169d2)
