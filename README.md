@@ -80,10 +80,12 @@ Once that"s done you will see the modified version, changes will be in yellow.
 
 ## Example
 
-Try this with the sample csv:
+Try this with the example csv above:
 ```
 python main.py -bt -i "@john.smith there's an issue with tenant123 with ip 173.126.26.218. The problem should be coming from here https://bitbucket.company123.com/projects/bot. Next to 173.126.26.218, you should also inspect 173.111.261.218 and 113.126.66.182."
 ```
+
+![image](https://github.com/ronan-s1/Anonymise-Script/assets/85257187/f9c85dc5-7458-4a7b-b45a-e87bd0384e96)
 
 ## Note
 
