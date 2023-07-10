@@ -88,7 +88,7 @@ def main():
     modified_input = replace_words(user_input, replacement_dict)
     modified_input = replace_ip_address(modified_input)
 
-    if args.no_filepath:
+    if args.filepath:
         modified_input = replace_file_paths(modified_input)
 
     if args.backtick:
