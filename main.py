@@ -94,7 +94,7 @@ def main():
     if args.backtick:
         modified_input = f"```\n{modified_input}\n```"
 
-    print(f"\n{BOLD}{GREEN}Original:{RESET}\n{user_input}\n{BOLD}{GREEN}\nModified:{RESET}\n{modified_input}\n")
+    print(f"{BOLD}{GREEN}Original:{RESET}\n{user_input}\n{BOLD}{GREEN}\nModified:{RESET}\n{modified_input}\n")
 
     if args.copy or input(f"{BOLD}{PURPLE}Add to clipboard? (y/n): {RESET}").lower() in ["yes", "y"]:
         pattern = re.compile(r"\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])")
