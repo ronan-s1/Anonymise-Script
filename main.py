@@ -65,7 +65,7 @@ def main():
     args = parser.parse_args()
 
     if args.test:
-        CSV = "test.csv"
+        replacement_dict = read_csv_file("test.csv")
 
     replacement_dict = read_csv_file(CSV)
 
